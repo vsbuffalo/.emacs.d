@@ -19,8 +19,6 @@ Either way, the installation is similiar on OS X:
  3. make install
  4. mv nextstep/Emacs.app /Applications
 
-
-
 ## Installing AUCTeX, Slime, and ESS
 
 I explicitly do not check AUCTeX, Slime, and ESS into git because they're big
