@@ -1,0 +1,7 @@
+*~
+backups/*
+\#*
+.DS_Store
+auto-save-list
+modes/*
+tramp
