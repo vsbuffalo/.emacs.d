@@ -47,6 +47,7 @@ this.
 
 ### Installing YASnippet
   Download from: http://code.google.com/p/yasnippet/downloads/
+
   1. cp -r yasnippet-version.number ~/emacs.d/modes/yasnippet
 
 ### Installing ido-mode
