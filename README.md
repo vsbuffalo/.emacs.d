@@ -1,11 +1,12 @@
-# Vince Buffalo's .emacs.d
+Vince Buffalo's .emacs.d
+========================
 This is my .emacs.d directory. 
 
 A large part of my layout is inspired by Fogus's:
 http://github.com/fogus/me/
 
-## Installing Emacs
-
+Installing Emacs
+----------------
 I bounce back and forth between Emacs distributions. The two I use
 most are:
 
@@ -19,7 +20,8 @@ Either way, the installation is similiar on OS X:
  3. make install
  4. mv nextstep/Emacs.app /Applications
 
-## Installing AUCTeX, Slime, and ESS
+Installing AUCTeX, Slime, and ESS
+---------------------------------
 
 I explicitly do not check AUCTeX, Slime, and ESS into git because they're big
 (over three megabytes). Thus if you use this, you do need to install
