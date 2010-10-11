@@ -32,7 +32,8 @@
       (setf *sbcl-path* "/opt/local/bin/sbcl")
       (setf *clojure-path* nil)
       (setf *tex-paths* '("/usr/local/bin" "/usr/texbin"))
-      (split-window-horizontally)))
+      (if (window-system)
+          (split-window-horizontally))))
    (t 
     (progn
       (message "This machine is not in the machines list; using defaults configuration")

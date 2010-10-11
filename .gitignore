@@ -3,7 +3,10 @@ backups/*
 \#*
 .DS_Store
 auto-save-list
-modes/*
+modes/ess
+modes/yasnippet
+modes/auctex
+modes/slime
 tramp
 elpa/*
 .org*
