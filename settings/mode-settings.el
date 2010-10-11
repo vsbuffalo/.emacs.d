@@ -2,12 +2,17 @@
 ;;
 ;; All settings for modes like python-mode, ESS, etc are here
 
+;; ========== Load ELPA ==========
+(when (load (concat *emacs-root* "elpa/package.el"))
+  (package-initialize))
+
+
 ;; ========== YASnippet ==========
 ;; Not really a mode, but YASnippet is
 ;; kept under <emacs-root>/modes, so this is here
 (require 'yasnippet)
 (yas/initialize)
-(yas/load-directory (concat emacs-root "modes/yasnippet/snippets"))
+(yas/load-directory (concat *emacs-root* "modes/yasnippet/snippets"))
 
 ;; ========== ido-mode ==========
 ;; only for 23 and above; issues occur otherwise
@@ -40,11 +45,9 @@
 
 ;; ========== AUCTeX ==========
 (setenv "PATH"
-        (concat (getenv "PATH")
-                ":/usr/local/bin:/usr/texbin"))
-(setq exec-path (append exec-path
-                        '("/usr/local/bin" 
-                          "/usr/local/texbin")))
+        (concat (getenv "PATH") (mapconcat #'(lambda (e) e) *tex-paths* ":")))
+(setq exec-path (append exec-path *tex-paths*))
+
 (load "auctex.el" nil t t)
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
@@ -57,7 +60,7 @@
 
 ;; ========== Flyspell ==========
 ;; This is sometimes disabled as an Emacs 23 bug makes this slow with Sweave
-(let ((aspell "/opt/local/bin/aspell"))
+(let ((aspell *aspell-path*))
   (if (file-exists-p aspell)
       (progn (setq ispell-dictionary "english")
              (setq ispell-program-name aspell)
@@ -90,8 +93,8 @@
 ;; ========== Slime, SBCL, and Clojure ==========
 ;; Slime
 (setq slime-lisp-implementations
-      '((sbcl ("/opt/local/bin/sbcl") :coding-system utf-8-unix)
-        (clojure ("/Users/vinceb/Library/Clojure/clj") :init swank-clojure-init)))
+      '((sbcl (*sbcl-path*) :coding-system utf-8-unix)
+        (clojure (*clojure-path*) :init swank-clojure-init)))
 
 ;; Make slime more useful
 (require 'slime-autoloads)
@@ -101,7 +104,7 @@
                                    (normal-mode)))))
 (eval-after-load "slime"
   '(progn
-    (add-to-list 'load-path (concat emacs-root "modes/slime/contrib")
+    (add-to-list 'load-path (concat *emacs-root* "modes/slime/contrib")
     (require 'slime-fancy)
     (require 'slime-banner)
     (require 'slime-asdf)

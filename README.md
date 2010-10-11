@@ -52,3 +52,23 @@ this.
 
 ### Installing ido-mode
   1. curl http://cvs.savannah.gnu.org/viewvc/*checkout*/emacs/emacs/lisp/ido.el > ~/.emacs.d/modes/ido.el
+
+ELPA
+----
+
+You must manually install ELPA. The directions are here:
+http://tromey.com/elpa/install.html, but basically you evaluate (with
+C-x C-e) a block like:
+
+    (let ((buffer (url-retrieve-synchronously
+    	       "http://tromey.com/elpa/package-install.el")))
+      (save-excursion
+        (set-buffer buffer)
+        (goto-char (point-min))
+        (re-search-forward "^$" nil 'move)
+        (eval-region (point) (point-max))
+        (kill-buffer (current-buffer))))
+
+Which produces a block of code. I have this in
+settings/mode-settings.el, so the code the block above generates to
+avoid redundancy.

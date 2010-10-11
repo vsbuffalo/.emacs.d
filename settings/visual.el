@@ -25,5 +25,6 @@
        (color-theme-initialize)
        (color-theme-tango))))
 
-(if (eq window-system 'ns)
-    (set-frame-height (selected-frame) 80))
+(when (eq window-system 'ns)
+  (set-frame-height (selected-frame) *frame-height*)
+  (set-frame-width (selected-frame) *frame-width*))
