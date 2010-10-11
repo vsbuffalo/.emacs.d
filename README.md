@@ -1,9 +1,14 @@
 Vince Buffalo's .emacs.d
 ========================
-This is my .emacs.d directory. 
 
-A large part of my layout is inspired by Fogus's:
-http://github.com/fogus/me/
+This is my .emacs.d directory. A large part of my layout is inspired
+by Fogus's and Steve Yegge's. My init.el has machine-dependent loading
+for a few reasons. First, I tried to keep all paths out of files
+*except* init.el, since the locations of SBCL, Clojure, aspell, etc
+are different across machines. Second, monitor sizes differ too, hence
+the different frame sizes and window splitting. Adjust these to your
+needs. I don't use sessions.el of desktop.el because I like working
+with a clean slate when I do close Emacs (rare).
 
 Installing Emacs
 ----------------
@@ -42,7 +47,7 @@ these.
 ### Install AUCTeX
   Download from: http://www.gnu.org/software/auctex/
 
-  1. ./configure --with-lispdir=~/.emacs.d/modes/auctex/ --with-texmf-dir=/usr/local/texlive/texmf-local
+  1. ./configure --with-lispdir=/Users/vinceb/.emacs.d/modes/auctex --with-texmf-dir=/usr/local/texlive/texmf-local
   2. make
   3. sudo make install
 

@@ -23,9 +23,19 @@
       (setf *sbcl-path* "/opt/local/bin/sbcl")
       (setf *clojure-path* "/Users/vinceb/Library/Clojure/clj")
       (setf *tex-paths* '("/usr/local/bin" "/usr/texbin"))))
+   ((string= this-machine "markov")
+    (progn
+      (setf *emacs-root* "/Users/vinceb/.emacs.d/")
+      (setf *frame-height* 110)
+      (setf *frame-width* 300)
+      (setf *aspell-path* "/opt/local/bin/aspell")
+      (setf *sbcl-path* "/opt/local/bin/sbcl")
+      (setf *clojure-path* nil)
+      (setf *tex-paths* '("/usr/local/bin" "/usr/texbin"))
+      (split-window-horizontally)))
    (t 
     (progn
-      (warn "This system is not in the system list; using defaults configuration")
+      (message "This machine is not in the machines list; using defaults configuration")
       (setf *emacs-root* (cond
                         ((member system-type (list 'gnu/linux 'linux))
                          "/home/vinceb/.emacs.d/")
@@ -48,3 +58,12 @@
 (load-library "general")
 (load-library "visual")
 (load-library "mode-settings")
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))

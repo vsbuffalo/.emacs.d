@@ -91,30 +91,32 @@
 (setq html-helper-build-new-buffer t)
 
 ;; ========== Slime, SBCL, and Clojure ==========
-;; Slime
-(setq slime-lisp-implementations
-      '((sbcl (*sbcl-path*) :coding-system utf-8-unix)
-        (clojure (*clojure-path*) :init swank-clojure-init)))
-
-;; Make slime more useful
-(require 'slime-autoloads)
-(add-hook 'lisp-mode-hook (lambda ()
-                            (cond ((not (featurep 'slime))
-                                   (require 'slime)
-                                   (normal-mode)))))
-(eval-after-load "slime"
-  '(progn
-    (add-to-list 'load-path (concat *emacs-root* "modes/slime/contrib")
-    (require 'slime-fancy)
-    (require 'slime-banner)
-    (require 'slime-asdf)
-    (slime-banner-init)
-    (slime-asdf-init)
-    (setq slime-complete-symbol*-fancy t)
-    (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
-    (slime-setup))))
-
-(setq auto-mode-alist
-      (cons '("\\.clj$" . clojure-mode)
-            auto-mode-alist))
-
+;; At the very least, I should have SBCL installed, otherwise skip.
+(when *sbcl-path*
+  (setq slime-lisp-implementations
+        (list 
+         '(sbcl (*sbcl-path*) :coding-system utf-8-unix)
+         (if *clojure-path*
+             `(clojure (,*clojure-path*) :init swank-clojure-init))))
+  
+  ;; Make slime more useful
+  (require 'slime-autoloads)
+  (add-hook 'lisp-mode-hook (lambda ()
+                              (cond ((not (featurep 'slime))
+                                     (require 'slime)
+                                     (normal-mode)))))
+  (eval-after-load "slime"
+    '(progn
+       (add-to-list 'load-path (concat *emacs-root* "modes/slime/contrib")
+                    (require 'slime-fancy)
+                    (require 'slime-banner)
+                    (require 'slime-asdf)
+                    (slime-banner-init)
+                    (slime-asdf-init)
+                    (setq slime-complete-symbol*-fancy t)
+                    (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
+                    (slime-setup))))
+  (when *clojure-path*
+    (setq auto-mode-alist
+          (cons '("\\.clj$" . clojure-mode)
+                auto-mode-alist))))
