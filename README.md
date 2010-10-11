@@ -15,6 +15,7 @@ most are:
     (http://github.com/typester/emacs)
 
 Either way, the installation is similiar on OS X:
+
  1. ./configure --with-ns
  2. make bootstrap
  3. make install
@@ -25,7 +26,7 @@ Installing AUCTeX, Slime, and ESS
 
 I explicitly do not check AUCTeX, Slime, and ESS into git because they're big
 (over three megabytes). Thus if you use this, you do need to install
-this. 
+these.
       
 ### Installing ESS
   Download from: http://ess.r-project.org/index.php?Section=download
