@@ -14,7 +14,7 @@
 ;; Machine-dependent initialization
 (let ((this-machine (car (split-string (system-name) "\\.")))) 
   (cond 
-   ((string= this-machine "biocoreap1")
+   ((string= this-machine "poisson")
     (progn
       (setf *emacs-root* "/Users/vinceb/.emacs.d/")
       (setf *frame-height* 110)
