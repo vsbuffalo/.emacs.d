@@ -59,6 +59,9 @@ these.
 ### Installing ido-mode
   1. curl http://cvs.savannah.gnu.org/viewvc/*checkout*/emacs/emacs/lisp/ido.el > ~/.emacs.d/modes/ido.el
 
+### Installing js2-mode
+  1. curl http://js2-mode.googlecode.com/files/js2-20090723b.el  > ~/.emacs.d/modes/js2-mode.el
+
 ELPA
 ----
 

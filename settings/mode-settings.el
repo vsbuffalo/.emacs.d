@@ -2,10 +2,24 @@
 ;;
 ;; All settings for modes like python-mode, ESS, etc are here
 
+;; ========== Auto Insert ==========
+(require 'autoinsert)
+(auto-insert-mode)  ;;; Adds hook to find-files-hook
+(setq auto-insert-directory "~/.emacs.d/templates/")
+(setq auto-insert-query nil)
+
+;; ========== nxml-mode ==========
+(add-to-list 'auto-mode-alist
+             (cons (concat "\\." (regexp-opt
+                                  '("xsd" "sch" "rng" "xslt" "svg" "rss" "Rdb")
+                                  t) "\\'") 'nxml-mode))
+
 ;; ========== Load ELPA ==========
 (when (load (concat *emacs-root* "elpa/package.el"))
   (package-initialize))
 
+;;=========== Load RDockbook ===========
+(load-library "Rdocbook")
 
 ;; ========== YASnippet ==========
 ;; Not really a mode, but YASnippet is
@@ -22,6 +36,12 @@
   (ido-mode t)
   ;; enable fuzzy matching:
   (setq ido-enable-flex-matching t))
+
+;; ========== js2-mode ==========
+(require 'js2-mode)
+
+;; ========== json.el ==========
+(require 'json)
 
 ;; ========== python-mode ==========
 (autoload 'python-mode "python-mode" "Python Mode." t)
@@ -69,6 +89,9 @@
     (warn "aspell was not found in: %s" aspell)))
 
 ;; ========== Org-mode settings ==========
+(add-to-list 'load-path (concat *emacs-root* "modes/org-mode/lisp"))
+(require 'org-install)
+(require 'org)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (setq org-directory "~/org/")
 (setq org-default-notes-file "~/org/.notes")
@@ -83,12 +106,6 @@
 (define-key global-map "\C-cr" 'org-remember)
 (setq org-remember-templates
       '(("Todo" ?t "* TODO %^{Brief Description} %^g\n%?\nAdded: %U" "~/org/newgtd.org" "Tasks")))
-
-;; ========== HTML-helper-mode ==========
-(autoload 'html-helper-mode "html-helper-mode" "Yay HTML" t)
-(setq auto-mode-alist (cons '("\\.html$" . html-helper-mode)
-                            auto-mode-alist))
-(setq html-helper-build-new-buffer t)
 
 ;; ========== Slime, SBCL, and Clojure ==========
 ;; At the very least, I should have SBCL installed, otherwise skip.
