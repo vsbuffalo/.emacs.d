@@ -19,7 +19,7 @@
   (package-initialize))
 
 ;;=========== Load RDockbook ===========
-(load-library "Rdocbook")
+(load "Rdocbook" t)
 
 ;; ========== YASnippet ==========
 ;; Not really a mode, but YASnippet is

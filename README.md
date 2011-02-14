@@ -32,6 +32,12 @@ Installing AUCTeX, Slime, and ESS
 I explicitly do not check AUCTeX, Slime, and ESS into git because they're big
 (over three megabytes). Thus if you use this, you do need to install
 these.
+
+### Installing org-mode (developent version)
+Note that one can also just follow releases: <http://orgmode.org/worg/org-faq.html#using-stable-releases-only>
+
+  1. cd ~/.emacs.d/modes/
+  2. git clone git://orgmode.org/org-mode.git 
       
 ### Installing ESS
   Download from: http://ess.r-project.org/index.php?Section=download
