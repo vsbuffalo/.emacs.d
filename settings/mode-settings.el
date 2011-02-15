@@ -88,7 +88,7 @@
              (global-set-key [mouse-3] 'flyspell-correct-word))
     (warn "aspell was not found in: %s" aspell)))
 
-;; ========== Org-mode settings ==========
+;; ========== Org-mode Settings ==========
 (add-to-list 'load-path (concat *emacs-root* "modes/org-mode/lisp"))
 (require 'org-install)
 (require 'org)
@@ -99,6 +99,12 @@
 (define-key global-map "\C-ca" 'org-agenda)
 (global-font-lock-mode t)
 
+;; look for a basic template; if exists, insert it
+(let ((basic-org-template (concat *emacs-root* "templates/basic.org")))
+  (if (file-exists-p basic-org-template)
+      (define-auto-insert "\.org" basic-org-template)))
+
+
 ;; binding remember-mode with org-mode
 (setq remember-annotation-functions '(org-remember-annotation))
 (setq remember-handler-functions '(org-remember-handler))
@@ -106,6 +112,18 @@
 (define-key global-map "\C-cr" 'org-remember)
 (setq org-remember-templates
       '(("Todo" ?t "* TODO %^{Brief Description} %^g\n%?\nAdded: %U" "~/org/newgtd.org" "Tasks")))
+
+;; ========== Org Babel Mode Settings ==========
+;; Active Babel languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((R . t)
+   (emacs-lisp . nil)
+   (sh . nil)
+   ))
+;; Don't prompt for eval of each code block
+(setq org-confirm-babel-evaluate nil)
+
 
 ;; ========== Slime, SBCL, and Clojure ==========
 ;; At the very least, I should have SBCL installed, otherwise skip.
