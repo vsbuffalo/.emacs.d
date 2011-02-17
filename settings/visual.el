@@ -1,6 +1,10 @@
-;; Visual Settings
+;; Visual Settings --- Setting the aesthetics of Emacs
+
 ;;
-;; More general settings are in general.el
+(add-to-list 'default-frame-alist '(left . 0))
+(add-to-list 'default-frame-alist '(top . 0))
+(add-to-list 'default-frame-alist '(height . 80))
+(add-to-list 'default-frame-alist '(width . 155))
 
 ;; Cursor type
 (setq-default cursor-type 'bar)
@@ -24,7 +28,3 @@
     '(progn
        (color-theme-initialize)
        (color-theme-tango))))
-
-(when window-system
-  (set-frame-height (selected-frame) *frame-height*)
-  (set-frame-width (selected-frame) *frame-width*))

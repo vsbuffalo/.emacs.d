@@ -1,6 +1,4 @@
-;; Mode Settings
-;;
-;; All settings for modes like python-mode, ESS, etc are here
+;;; Mode Settings --- All settings for modes like python-mode, ESS, etc are here.
 
 ;; ========== Auto Insert ==========
 (require 'autoinsert)
@@ -39,9 +37,6 @@
 
 ;; ========== js2-mode ==========
 (require 'js2-mode)
-
-;; ========== json.el ==========
-(require 'json)
 
 ;; ========== python-mode ==========
 (autoload 'python-mode "python-mode" "Python Mode." t)
@@ -116,6 +111,11 @@
 ;; Don't subscript
 (setq org-export-with-sub-superscripts nil)
 
+;; TODO states
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "FEEDBACK" "VERIFY" "|" "DONE(d)" "DELEGATED")
+        (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")))
+
 ;; ========== Org Babel Mode Settings ==========
 ;; Active Babel languages
 (org-babel-do-load-languages
@@ -131,11 +131,11 @@
 
 ;; ========== Slime, SBCL, and Clojure ==========
 ;; At the very least, I should have SBCL installed, otherwise skip.
-(when *sbcl-path*
+(when (boundp '*sbcl-path*)
   (setq slime-lisp-implementations
         (list 
          '(sbcl (*sbcl-path*) :coding-system utf-8-unix)
-         (if *clojure-path*
+         (if (boundp '*clojure-path*)
              `(clojure (,*clojure-path*) :init swank-clojure-init))))
   
   ;; Make slime more useful
@@ -155,7 +155,7 @@
                     (setq slime-complete-symbol*-fancy t)
                     (setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
                     (slime-setup))))
-  (when *clojure-path*
+  (when (boundp '*clojure-path*)
     (setq auto-mode-alist
           (cons '("\\.clj$" . clojure-mode)
                 auto-mode-alist))))

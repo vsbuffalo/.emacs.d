@@ -1,4 +1,4 @@
-;; General Settings
+;; General Settings - settings across all modes
 ;;
 ;; Any aesthetic settings such as color themes, cursor, etc are in
 ;; visual.el

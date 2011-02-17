@@ -3,47 +3,16 @@
 (require 'cl)
 
 ;; Default values
-(defvar *emacs-root* nil "root of emacs load-path")
-(defvar *frame-height* 110 "frame height (only applies for windowed ns sessions")
-(defvar *frame-width* 110 "frame width (only applies for windowed ns sessions")
-(defvar *aspell-path* "/opt/local/bin/aspell" "location of aspell for flyspell-mode")
-(defvar *sbcl-path* nil "location of sbcl for use with slime")
-(defvar *clojure-path* nil "location of clojure for use with slime")
-(defvar *tex-paths* nil "location of TeX binaries for AUCTeX")
+(defvar *emacs-root* (expand-file-name "~/.emacs.d/")
+  "root of emacs load-path")
+(defvar *aspell-path* "/opt/local/bin/aspell"
+  "location of aspell for flyspell-mode")
+(defvar *sbcl-path* "/opt/local/bin/sbcl"
+  "location of sbcl for use with slime")
+(defvar *tex-paths* '("/usr/local/bin" "/usr/texbin")
+  "location of TeX binaries for AUCTeX")
 
-;; Machine-dependent initialization
-(let ((this-machine (car (split-string (system-name) "\\.")))) 
-  (cond 
-   ((string= this-machine "poisson")
-    (progn
-      (setf *emacs-root* "/Users/vinceb/.emacs.d/")
-      (setf *frame-height* 110)
-      (setf *frame-width* 110)
-      (setf *aspell-path* "/opt/local/bin/aspell")
-      (setf *sbcl-path* "/opt/local/bin/sbcl")
-      (setf *clojure-path* "/Users/vinceb/Library/Clojure/clj")
-      (setf *tex-paths* '("/usr/local/bin" "/usr/texbin"))))
-   ((string= this-machine "markov")
-    (progn
-      (setf *emacs-root* "/Users/vinceb/.emacs.d/")
-      (setf *frame-height* 110)
-      (setf *frame-width* 300)
-      (setf *aspell-path* "/opt/local/bin/aspell")
-      (setf *sbcl-path* "/opt/local/bin/sbcl")
-      (setf *clojure-path* nil)
-      (setf *tex-paths* '("/usr/local/bin" "/usr/texbin"))
-      (if (window-system)
-          (split-window-horizontally))))
-   (t 
-    (progn
-      (message "This machine is not in the machines list; using defaults configuration")
-      (setf *emacs-root* (cond
-                        ((member system-type (list 'gnu/linux 'linux))
-                         "/home/vinceb/.emacs.d/")
-                        ((eq system-type 'darwin)
-                         "/Users/vinceb/.emacs.d/")))))))
-  
-
+;; Set up load path - everything should be contained to ~/.emacs.d
 (labels ((add-path (p) 
 		   (add-to-list 'load-path (concat *emacs-root* p))))
   (add-path "settings") ;; contains all settings
@@ -56,6 +25,15 @@
   (add-path "elisp/themes") ;; contains themes for use with color-theme
   )
 
+
+;; General settings, i.e. behaviors across all modes.
 (load-library "general")
+
+;; Color themes and aesthetic settings
 (load-library "visual")
+
+;; Configurations for various modes
 (load-library "mode-settings")
+
+;; Load my custom elisp functions (for small stuff)
+(load-library "custom")

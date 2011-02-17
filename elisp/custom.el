@@ -1,5 +1,4 @@
-;; Custom code
-;;
+;;; Custom code --- My Elisp functions.
 
 ;; Add support for clearing shells
 (defun clear-shell ()
@@ -9,6 +8,3 @@
      (comint-truncate-buffer)
      (setq comint-buffer-maximum-size old-max)))
 (global-set-key  (kbd "\C-x c") 'clear-shell)
-
-
-
