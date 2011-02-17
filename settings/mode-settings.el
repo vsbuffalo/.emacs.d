@@ -113,6 +113,9 @@
 (setq org-remember-templates
       '(("Todo" ?t "* TODO %^{Brief Description} %^g\n%?\nAdded: %U" "~/org/newgtd.org" "Tasks")))
 
+;; Don't subscript
+(setq org-export-with-sub-superscripts nil)
+
 ;; ========== Org Babel Mode Settings ==========
 ;; Active Babel languages
 (org-babel-do-load-languages
@@ -121,6 +124,7 @@
    (emacs-lisp . t)
    (sh . t)
    ))
+
 ;; Don't prompt for eval of each code block
 (setq org-confirm-babel-evaluate nil)
 
