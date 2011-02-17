@@ -118,8 +118,8 @@
 (org-babel-do-load-languages
  'org-babel-load-languages
  '((R . t)
-   (emacs-lisp . nil)
-   (sh . nil)
+   (emacs-lisp . t)
+   (sh . t)
    ))
 ;; Don't prompt for eval of each code block
 (setq org-confirm-babel-evaluate nil)
