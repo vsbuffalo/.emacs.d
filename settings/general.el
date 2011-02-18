@@ -7,6 +7,12 @@
 (setq-default indent-tabs-mode nil)
 (setq tab-width 2)
 
+;; Scroll to the bottom of interpreter (ESS or shell) on input or
+;; output.
+(setq comint-scroll-to-bottom-on-input t)
+(setq comint-scroll-to-bottom-on-output t)
+(setq comint-move-point-for-output t)
+
 ;; Parentheses matching
 (require 'paren)
 (show-paren-mode t)

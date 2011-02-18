@@ -59,14 +59,36 @@
 ;;               '("\\.py\\'" flymake-pylint-init)))
 
 ;; ========== AUCTeX ==========
+;; Add directories containg TeX binaries to path; the OS X Emacs
+;; application doesn't get the system path. This also works (with
+;; restart):
+;; defaults write $HOME/.MacOSX/environment PATH “$PATH”
 (setenv "PATH"
         (concat (getenv "PATH") (mapconcat #'(lambda (e) e) *tex-paths* ":")))
 (setq exec-path (append exec-path *tex-paths*))
 
 (load "auctex.el" nil t t)
+(load "preview-latex.el" nil t t)
 (setq TeX-auto-save t)
 (setq TeX-parse-self t)
 
+;; Use PDFTeX
+(setq TeX-parse-self t)
+
+;; RefTeX options - from kjhealy's Emacs-starter-kit
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
+(autoload 'reftex-mode     "reftex" "RefTeX Minor Mode" t)
+(autoload 'turn-on-reftex  "reftex" "RefTeX Minor Mode" nil)
+(autoload 'reftex-citation "reftex-cite" "Make citation" nil)
+(autoload 'reftex-index-phrase-mode "reftex-index" "Phrase mode" t)
+(add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
+(add-hook 'latex-mode-hook 'turn-on-reftex)   ; with Emacs latex mode
+  
+;; Make RefTeX faster
+(setq reftex-enable-partial-scans t)
+(setq reftex-save-parse-info t)
+(setq reftex-use-multiple-selection-buffers t)
+(setq reftex-plug-into-AUCTeX t)
 
 ;; ========== ESS Settings ==========
 (require 'ess-site)
@@ -127,7 +149,6 @@
 
 ;; Don't prompt for eval of each code block
 (setq org-confirm-babel-evaluate nil)
-
 
 ;; ========== Slime, SBCL, and Clojure ==========
 ;; At the very least, I should have SBCL installed, otherwise skip.
