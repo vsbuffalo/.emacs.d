@@ -135,7 +135,8 @@
 
 ;; TODO states
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "FEEDBACK" "VERIFY" "|" "DONE(d)" "DELEGATED")
+      '((sequence "TODO(t)" "FEEDBACK(f)" "VERIFY(v)" 
+                  "FRAGILE(f)" "|" "DONE(d)" "DELEGATED(g)")
         (sequence "REPORT(r)" "BUG(b)" "KNOWNCAUSE(k)" "|" "FIXED(f)")))
 
 ;; ========== Org Babel Mode Settings ==========

@@ -3,6 +3,9 @@
 ;; Any aesthetic settings such as color themes, cursor, etc are in
 ;; visual.el
 
+;; Don't use dialog boxes
+(setq use-dialog-box nil)
+
 ;; Tab settings
 (setq-default indent-tabs-mode nil)
 (setq tab-width 2)
@@ -49,3 +52,7 @@
 (setq comint-prompt-read-only t)
 (setq comint-move-point-for-output t)
 (setq comint-scroll-to-bottom-on-input t)
+
+
+;; Make Grep's default command recursive
+(setq grep-command "grep -nHr -e")
