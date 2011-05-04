@@ -1,5 +1,11 @@
 ;;; Mode Settings --- All settings for modes like python-mode, ESS, etc are here.
 
+
+;; ========== Autopair ==========
+(require 'autopair)
+(autopair-global-mode) ;; enable autopair in all buffers
+(setq autopair-blink nil)
+
 ;; ========== Auto Insert ==========
 (require 'autoinsert)
 (auto-insert-mode)  ;;; Adds hook to find-files-hook
@@ -16,9 +22,6 @@
 (when (load (concat *emacs-root* "elpa/package.el"))
   (package-initialize))
 
-;;=========== Load RDockbook ===========
-(load "Rdocbook" t)
-
 ;; ========== YASnippet ==========
 ;; Not really a mode, but YASnippet is
 ;; kept under <emacs-root>/modes, so this is here
@@ -27,8 +30,9 @@
 (yas/load-directory (concat *emacs-root* "modes/yasnippet/snippets"))
 
 ;; ========== ido-mode ==========
-;; only for 23 and above; issues occur otherwise
-(when (>= emacs-major-version 23)
+;; Only for 23 and above; issues occur otherwise.  Also, don't run if
+;; not on a windowed system (since this takes a long time to load).
+(when (and (>= emacs-major-version 23) (window-system))
   (require 'tramp)
   (require 'ido)
   (ido-mode t)
@@ -76,19 +80,19 @@
 (setq TeX-parse-self t)
 
 ;; RefTeX options - from kjhealy's Emacs-starter-kit
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
-(autoload 'reftex-mode     "reftex" "RefTeX Minor Mode" t)
-(autoload 'turn-on-reftex  "reftex" "RefTeX Minor Mode" nil)
-(autoload 'reftex-citation "reftex-cite" "Make citation" nil)
-(autoload 'reftex-index-phrase-mode "reftex-index" "Phrase mode" t)
-(add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
-(add-hook 'latex-mode-hook 'turn-on-reftex)   ; with Emacs latex mode
+;; (add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
+;; (autoload 'reftex-mode     "reftex" "RefTeX Minor Mode" t)
+;; (autoload 'turn-on-reftex  "reftex" "RefTeX Minor Mode" nil)
+;; (autoload 'reftex-citation "reftex-cite" "Make citation" nil)
+;; (autoload 'reftex-index-phrase-mode "reftex-index" "Phrase mode" t)
+;; (add-hook 'LaTeX-mode-hook 'turn-on-reftex)   ; with AUCTeX LaTeX mode
+;; (add-hook 'latex-mode-hook 'turn-on-reftex)   ; with Emacs latex mode
   
-;; Make RefTeX faster
-(setq reftex-enable-partial-scans t)
-(setq reftex-save-parse-info t)
-(setq reftex-use-multiple-selection-buffers t)
-(setq reftex-plug-into-AUCTeX t)
+;; ;; Make RefTeX faster
+;; (setq reftex-enable-partial-scans t)
+;; (setq reftex-save-parse-info t)
+;; (setq reftex-use-multiple-selection-buffers t)
+;; (setq reftex-plug-into-AUCTeX t)
 
 ;; ========== ESS Settings ==========
 (require 'ess-site)
