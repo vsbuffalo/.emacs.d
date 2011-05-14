@@ -71,3 +71,21 @@
 
 ;; Make Grep's default command recursive
 (setq grep-command "grep -nHr -e")
+
+
+;; Window resizing shortcuts
+(defun enlarge-window-again ()
+  "This is designed to be bound to ^, such that consecutive ^
+keystrokes continue to enlarge the window."
+  (interactive)
+  (if (or (eql last-command 'enlarge-window) 
+          (eql last-command 'enlarge-window-again))
+      (enlarge-window 1)
+    (insert "^")))
+(global-set-key (kbd "^") 'enlarge-window-again)
+
+;; Even more accessible window resizing
+(global-set-key (kbd "S-C-<left>") 'shrink-window-horizontally)
+(global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
+(global-set-key (kbd "S-C-<down>") 'shrink-window)
+(global-set-key (kbd "S-C-<up>") 'enlarge-window)
