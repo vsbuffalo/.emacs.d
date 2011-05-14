@@ -32,12 +32,11 @@
 ;; ========== ido-mode ==========
 ;; Only for 23 and above; issues occur otherwise.  Also, don't run if
 ;; not on a windowed system (since this takes a long time to load).
-(when (and (>= emacs-major-version 23) (window-system))
-  (require 'tramp)
-  (require 'ido)
-  (ido-mode t)
-  ;; enable fuzzy matching:
-  (setq ido-enable-flex-matching t))
+(require 'tramp)
+(require 'ido)
+(ido-mode t)
+;; enable fuzzy matching:
+(setq ido-enable-flex-matching t)
 
 ;; ========== js2-mode ==========
 (require 'js2-mode)
