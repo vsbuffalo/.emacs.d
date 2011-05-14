@@ -11,7 +11,7 @@ Installing Emacs
 I bounce back and forth between Emacs distributions. The two I use
 most are:
 
- 1. Standard Emacs: http://ftp.gnu.org/pub/gnu/emacs/, with both the
+ 1. Standard Emacs: http://ftp.gnu.org/pub/gnu/emacs/ with both the
  GUI app and terminal emacs.
  2. Typester's Emacs fork (supports OS X
  full screen mode): (http://github.com/typester/emacs)
@@ -54,7 +54,7 @@ Note that one can also just follow releases: <http://orgmode.org/worg/org-faq.ht
 
 ### Install Slime
     
-  1. `cd` to `~/.emacs.d/modes/`
+  1. `cd ~/.emacs.d/modes/`
   2. `cvs -d :pserver:anonymous:anonymous@common-lisp.net:/project/slime/cvsroot co slime`
 
 ### Install AUCTeX
