@@ -3,8 +3,17 @@
 ;; Any aesthetic settings such as color themes, cursor, etc are in
 ;; visual.el
 
+;; Scroll to the bottom of interpreter (ESS or shell) on input or
+;; output.
+(setq comint-scroll-to-bottom-on-input t)
+(setq comint-scroll-to-bottom-on-output t)
+(setq comint-move-point-for-output t)
+
 ;; Don't use dialog boxes
 (setq use-dialog-box nil)
+
+;; Fast buffer cycling with C-tab
+(global-set-key (kbd "<C-tab>") 'next-buffer)
 
 ;; Set transient mark mode
 (setq transient-mark-mode t)
@@ -23,15 +32,8 @@
 (setq undo-limit 100000) 
 
 ;; Disable that stupid toolbar and menu bar
-(when (and (>= emacs-major-version 23) (window-system))
-  (tool-bar-mode nil))
+(tool-bar-mode nil)
 (menu-bar-mode nil)
-
-;; Scroll to the bottom of interpreter (ESS or shell) on input or
-;; output.
-(setq comint-scroll-to-bottom-on-input t)
-(setq comint-scroll-to-bottom-on-output t)
-(setq comint-move-point-for-output t)
 
 ;; Parentheses matching
 (require 'paren)
@@ -50,10 +52,10 @@
 
 ;; Enable buffer-swapping
 (require 'buffer-move)
-(global-set-key (kbd "C-S-<up>") 'buf-move-up)
-(global-set-key (kbd "C-S-<down>") 'buf-move-down)
-(global-set-key (kbd "C-S-<left>") 'buf-move-left)
-(global-set-key (kbd "C-S-<right>") 'buf-move-right)
+(global-set-key (kbd "S-<up>") 'buf-move-up)
+(global-set-key (kbd "S-<down>") 'buf-move-down)
+(global-set-key (kbd "S-<left>") 'buf-move-left)
+(global-set-key (kbd "S-<right>") 'buf-move-right)
 
 ;; Make M-<delete> (the key above left-arrow) delete right
 (global-set-key (kbd "<M-kp-delete>") 'kill-word)

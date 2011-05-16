@@ -98,6 +98,10 @@
 (setq ess-indent-level 2)
 (setq ess-eval-visibly-p nil)
 
+;; By default, #, ##, and ### indent to different levels. This is
+;; stupid, so the line below fixes this.
+(setq ess-fancy-comments nil)
+
 ;; ========== Flyspell ==========
 ;; This is sometimes disabled as an Emacs 23 bug makes this slow with Sweave
 (let ((aspell *aspell-path*))
