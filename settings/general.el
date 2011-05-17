@@ -32,7 +32,8 @@
 (setq undo-limit 100000) 
 
 ;; Disable that stupid toolbar and menu bar
-(tool-bar-mode nil)
+(if (window-system)
+    (tool-bar-mode nil))
 (menu-bar-mode nil)
 
 ;; Parentheses matching
@@ -72,7 +73,7 @@
 (setq comint-scroll-to-bottom-on-input t)
 
 ;; Make Grep's default command recursive
-(setq grep-command "grep -nHr -e")
+(setq grep-command "grep -nHr -e ")
 
 
 ;; Window resizing shortcuts

@@ -30,8 +30,6 @@
 (yas/load-directory (concat *emacs-root* "modes/yasnippet/snippets"))
 
 ;; ========== ido-mode ==========
-;; Only for 23 and above; issues occur otherwise.  Also, don't run if
-;; not on a windowed system (since this takes a long time to load).
 (require 'tramp)
 (require 'ido)
 (ido-mode t)
