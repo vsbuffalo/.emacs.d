@@ -32,7 +32,7 @@
 (setq undo-limit 100000) 
 
 ;; Disable that stupid toolbar and menu bar
-(if (window-system)
+(if window-system
     (tool-bar-mode nil))
 (menu-bar-mode nil)
 
