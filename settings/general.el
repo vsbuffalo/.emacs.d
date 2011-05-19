@@ -12,8 +12,9 @@
 ;; Don't use dialog boxes
 (setq use-dialog-box nil)
 
-;; Fast buffer cycling with C-tab
-(global-set-key (kbd "<C-tab>") 'next-buffer)
+;; Following Steve Yegge's advice, configure M-x to these.
+(global-set-key "\C-x\C-m" 'execute-extended-command)
+(global-set-key "\C-c\C-m" 'execute-extended-command)
 
 ;; Set transient mark mode
 (setq transient-mark-mode t)
@@ -32,9 +33,9 @@
 (setq undo-limit 100000) 
 
 ;; Disable that stupid toolbar and menu bar
-(if window-system
-    (tool-bar-mode nil))
-(menu-bar-mode nil)
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
 ;; Parentheses matching
 (require 'paren)
@@ -74,7 +75,6 @@
 
 ;; Make Grep's default command recursive
 (setq grep-command "grep -nHr -e ")
-
 
 ;; Window resizing shortcuts
 (defun enlarge-window-again ()

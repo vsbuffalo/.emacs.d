@@ -1,11 +1,5 @@
 ;; Visual Settings --- Setting the aesthetics of Emacs
 
-;;
-(add-to-list 'default-frame-alist '(left . 0))
-(add-to-list 'default-frame-alist '(top . 0))
-(add-to-list 'default-frame-alist '(height . 80))
-(add-to-list 'default-frame-alist '(width . 155))
-
 ;; Cursor type
 (setq-default cursor-type 'bar)
 (blink-cursor-mode t)
@@ -23,6 +17,12 @@
 
 ;; Color-theme settings
 (when (eq window-system 'ns)
+  ;; Set window sizes
+  (add-to-list 'default-frame-alist '(left . 0))
+  (add-to-list 'default-frame-alist '(top . 0))
+  (add-to-list 'default-frame-alist '(height . 80))
+  (add-to-list 'default-frame-alist '(width . 155))
+
   (require 'color-theme)
   (eval-after-load "color-theme"
     '(progn

@@ -77,7 +77,6 @@ Note that one can also just follow releases: <http://orgmode.org/worg/org-faq.ht
 This is actually tracked in this repository, but to update:
 
   1. `curl http://js2-mode.googlecode.com/files/js2-20090723b.el  > ~/.emacs.d/modes/js2-mode.el`
-n
 
 ### Installing g-client
 
