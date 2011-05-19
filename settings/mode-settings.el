@@ -186,3 +186,10 @@
     (setq auto-mode-alist
           (cons '("\\.clj$" . clojure-mode)
                 auto-mode-alist))))
+
+;; ========== g-client ==========
+;; Awesome interface to Google API for Google web apps.
+;; Requires running make in directory as part of install.
+(add-to-list 'load-path 
+             (concat *emacs-root* "modes/emacspeak/lisp/g-client/"))
+(require 'g)

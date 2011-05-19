@@ -73,8 +73,20 @@ Note that one can also just follow releases: <http://orgmode.org/worg/org-faq.ht
   1. `curl http://cvs.savannah.gnu.org/viewvc/*checkout*/emacs/emacs/lisp/ido.el > ~/.emacs.d/modes/ido.el`
 
 ### Installing js2-mode
+
+This is actually tracked in this repository, but to update:
+
   1. `curl http://js2-mode.googlecode.com/files/js2-20090723b.el  > ~/.emacs.d/modes/js2-mode.el`
 n
+
+### Installing g-client
+
+g-client is part of emacspeak. Checkout and install via:
+
+  1. `svn checkout http://emacspeak.googlecode.com/svn/trunk/ ~/.emacs.d/emacspeak`
+  2. `cd ~/.emacs.d/emacspeak/lisp/g-client/`
+  3. `make`
+
 ELPA
 ----
 
@@ -94,3 +106,4 @@ C-x C-e) a block like:
 Which produces a block of code. I have this in
 settings/mode-settings.el, so the code the block above generates to
 avoid redundancy.
+
