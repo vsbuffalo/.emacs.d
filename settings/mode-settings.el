@@ -193,3 +193,10 @@
 (add-to-list 'load-path 
              (concat *emacs-root* "modes/emacspeak/lisp/g-client/"))
 (require 'g)
+
+;; ========= Markdown-mode =========
+;; More info here: http://jblevins.org/projects/markdown-mode/
+(autoload 'markdown-mode "markdown-mode.el" "Major mode for
+editing Markdown files" t)
+(setq auto-mode-alist (cons
+'("\\.md" . markdown-mode) auto-mode-alist))

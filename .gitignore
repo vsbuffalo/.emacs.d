@@ -10,3 +10,4 @@ modes/slime
 tramp
 elpa/*
 .org*
+*.elc
