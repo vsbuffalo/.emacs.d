@@ -92,3 +92,11 @@ keystrokes continue to enlarge the window."
 (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
+
+;; turn on line highlighting
+;; (global-hl-line-mode t)
+(set-face-background 'hl-line "#663300")
+(set-face-foreground 'hl-line "#FFF")
+
+;; Turn on fixme mode
+(require 'fixme-mode)
