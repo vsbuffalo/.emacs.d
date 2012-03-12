@@ -20,6 +20,7 @@
   (add-path "modes/auctex") 
   (add-path "modes/slime")
   (add-path "modes/yasnippet")
+  ;; (add-path "/modes/icicles/")
   (add-path "modes/ess/lisp") ;; ESS's lisp (also needs ess/etc)
   (add-path "elisp") ;; for tiny bits of code, both mine and collected
   (add-path "elisp/themes") ;; contains themes for use with color-theme

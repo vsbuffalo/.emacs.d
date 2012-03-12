@@ -60,16 +60,16 @@
 (global-set-key (kbd "S-<right>") 'buf-move-right)
 
 ;; Make M-<delete> (the key above left-arrow) delete right
-(global-set-key (kbd "<M-kp-delete>") 'kill-word)
-(global-set-key (kbd "<kp-delete>") 'delete-char)
+;; (global-set-key (kbd "<M-kp-delete>") 'kill-word)
+;; (global-set-key (kbd "<kp-delete>") 'delete-char)
 
 ;; Turn on delete-selection-mode, which deletes selected text when
 ;; typing starts
 (delete-selection-mode t)
 
-;; Make emacs shell prompts read-only and jump to end of buffer when
-;; there is output
-(setq comint-prompt-read-only t)
+;; Make emacs shell prompts read-only (disabled now) and jump to end
+;; of buffer when there is output
+(setq comint-prompt-read-only nil)
 (setq comint-move-point-for-output t)
 (setq comint-scroll-to-bottom-on-input t)
 
@@ -92,11 +92,6 @@ keystrokes continue to enlarge the window."
 (global-set-key (kbd "S-C-<right>") 'enlarge-window-horizontally)
 (global-set-key (kbd "S-C-<down>") 'shrink-window)
 (global-set-key (kbd "S-C-<up>") 'enlarge-window)
-
-;; turn on line highlighting
-;; (global-hl-line-mode t)
-(set-face-background 'hl-line "#663300")
-(set-face-foreground 'hl-line "#FFF")
 
 ;; Turn on fixme mode
 (require 'fixme-mode)
