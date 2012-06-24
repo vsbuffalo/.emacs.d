@@ -16,9 +16,6 @@
 (global-set-key "\C-x\C-m" 'execute-extended-command)
 (global-set-key "\C-c\C-m" 'execute-extended-command)
 
-;; Set transient mark mode
-(setq transient-mark-mode t)
-
 ;; Don't give me that pleasant start up message
 (setq inhibit-startup-message t)
 

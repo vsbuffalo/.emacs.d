@@ -1009,6 +1009,7 @@ This helps improve font locking for block constructs such as pre blocks."
 
 ;;; Element Insertion =========================================================
 
+;; DEBUG
 (defun markdown-wrap-or-insert (s1 s2)
  "Insert the strings S1 and S2.
 If Transient Mark mode is on and a region is active, wrap the strings S1

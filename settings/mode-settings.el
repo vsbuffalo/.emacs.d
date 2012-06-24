@@ -1,5 +1,9 @@
 ;;; Mode Settings --- All settings for modes like python-mode, ESS, etc are here.
 
+;; ========== Edit with Emacs ========
+(require 'edit-server)
+(edit-server-start)
+
 
 ;; ========== Autopair ==========
 (require 'autopair)
@@ -156,6 +160,16 @@
 ;; Don't prompt for eval of each code block
 (setq org-confirm-babel-evaluate nil)
 
+;; ========= Org-mode Reference handling =========
+(defun org-mode-reftex-setup ()
+(load-library "reftex")
+(and (buffer-file-name)
+(file-exists-p (buffer-file-name))
+(reftex-parse-all))
+(define-key org-mode-map (kbd "C-c )") 'reftex-citation)
+)
+(add-hook 'org-mode-hook 'org-mode-reftex-setup)
+
 ;; ========== Slime, SBCL, and Clojure ==========
 ;; At the very least, I should have SBCL installed, otherwise skip.
 (when (boundp '*sbcl-path*)
@@ -200,5 +214,9 @@
 editing Markdown files" t)
 (setq auto-mode-alist (cons
 '("\\.md" . markdown-mode) auto-mode-alist))
+(setq auto-mode-alist (cons
+'("\\.Rmd". markdown-mode) auto-mode-alist))
+
+
 
 
