@@ -82,8 +82,8 @@ This is actually tracked in this repository, but to update:
 
 g-client is part of emacspeak. Checkout and install via:
 
-  1. `svn checkout http://emacspeak.googlecode.com/svn/trunk/ ~/.emacs.d/emacspeak`
-  2. `cd ~/.emacs.d/emacspeak/lisp/g-client/`
+  1. `svn checkout http://emacspeak.googlecode.com/svn/trunk/lisp/g-client/ ~/.emacs.d/modes/g-client`
+  2. `cd ~/.emacs.d/modes/g-client/`
   3. `make`
 
 ELPA

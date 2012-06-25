@@ -1,10 +1,5 @@
 ;;; Mode Settings --- All settings for modes like python-mode, ESS, etc are here.
 
-;; ========== Edit with Emacs ========
-(require 'edit-server)
-(edit-server-start)
-
-
 ;; ========== Autopair ==========
 (require 'autopair)
 (autopair-global-mode) ;; enable autopair in all buffers
@@ -115,8 +110,6 @@
     (warn "aspell was not found in: %s" aspell)))
 
 ;; ========== Org-mode Settings ==========
-(add-to-list 'load-path (concat *emacs-root* "modes/org-mode/lisp"))
-(require 'org-install)
 (require 'org)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
 (setq org-directory "~/org/")
@@ -205,17 +198,17 @@
 ;; Awesome interface to Google API for Google web apps.
 ;; Requires running make in directory as part of install.
 (add-to-list 'load-path 
-             (concat *emacs-root* "modes/emacspeak/lisp/g-client/"))
+             (concat *emacs-root* "modes/g-client/"))
 (require 'g)
 
-;; ========= Markdown-mode =========
-;; More info here: http://jblevins.org/projects/markdown-mode/
-(autoload 'markdown-mode "markdown-mode.el" "Major mode for
-editing Markdown files" t)
-(setq auto-mode-alist (cons
-'("\\.md" . markdown-mode) auto-mode-alist))
-(setq auto-mode-alist (cons
-'("\\.Rmd". markdown-mode) auto-mode-alist))
+;; ;; ========= Markdown-mode =========
+;; ;; More info here: http://jblevins.org/projects/markdown-mode/
+;; (autoload 'markdown-mode "markdown-mode.el" "Major mode for
+;; editing Markdown files" t)
+;; (setq auto-mode-alist (cons
+;; '("\\.md" . markdown-mode) auto-mode-alist))
+;; (setq auto-mode-alist (cons
+;; '("\\.Rmd". markdown-mode) auto-mode-alist))
 
 
 
