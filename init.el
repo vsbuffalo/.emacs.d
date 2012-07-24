@@ -5,7 +5,7 @@
 ;; Default values
 (defvar *emacs-root* (expand-file-name "~/.emacs.d/")
   "root of emacs load-path")
-(defvar *aspell-path* "/opt/local/bin/aspell"
+(defvar *aspell-path* "/usr/local/bin/aspell"
   "location of aspell for flyspell-mode")
 (defvar *sbcl-path* "/opt/local/bin/sbcl"
   "location of sbcl for use with slime")
@@ -38,3 +38,14 @@
 
 ;; Load my custom elisp functions (for small stuff)
 (load-library "custom")
+
+
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))

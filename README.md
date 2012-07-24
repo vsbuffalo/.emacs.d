@@ -1,5 +1,4 @@
-Vince Buffalo's .emacs.d
-========================
+# Vince Buffalo's .emacs.d
 
 This is my .emacs.d directory. A large part of my layout is inspired
 by Fogus's and Steve Yegge's. I would recommend using this only for
@@ -8,15 +7,22 @@ machine-dependent paths hardcoded in.
 
 Installing Emacs
 ----------------
-I bounce back and forth between Emacs distributions. The two I use
-most are:
+
+I bounce back and forth between Emacs distributions. Currently I am
+using [Homebrew's](http://mxcl.github.com/homebrew/) version. Here are
+some other options:
 
  1. Standard Emacs: http://ftp.gnu.org/pub/gnu/emacs/ with both the
  GUI app and terminal emacs.
- 2. Typester's Emacs fork (supports OS X
- full screen mode): (http://github.com/typester/emacs)
 
-Either way, the installation is similiar on OS X for the GUI version:
+ 2. Typester's Emacs fork (supports OS X full screen mode):
+ (http://github.com/typester/emacs)
+
+ 3. Standard Emacs from homebrew: `brew install emacs`. This is what I
+ am using primarily no
+
+The installation of the first two ares similiar on OS X for the GUI
+version:
 
  1. `./configure --with-ns`
  2. `make bootstrap`
@@ -34,20 +40,22 @@ This installs to `/usr/local/bin/emacs` which you should add to your
 `$PATH` in your `~/.profile`. Terminal Emacs works very well with the
 excellent iTerm2.s
 
-Installing AUCTeX, Slime, and ESS
----------------------------------
+## Installing AUCTeX, Slime, and ESS
 
 I explicitly do not check AUCTeX, Slime, and ESS into Git because they're big
 (over three megabytes). Thus if you use this, you do need to install
 these.
 
 ### Installing org-mode (developent version)
-Note that one can also just follow releases: <http://orgmode.org/worg/org-faq.html#using-stable-releases-only>
+
+`org-mode` is packaged with Emacs now, but if you want to follow the
+development release, do the following. 
 
   1. `cd ~/.emacs.d/modes/`
   2. `git clone git://orgmode.org/org-mode.git`
       
 ### Installing ESS
+
   Download from: http://ess.r-project.org/index.php?Section=download
   
   1. `cp -r ess-version.number ~/.emacs.d/modes/ess`
@@ -58,7 +66,8 @@ Note that one can also just follow releases: <http://orgmode.org/worg/org-faq.ht
   2. `cvs -d :pserver:anonymous:anonymous@common-lisp.net:/project/slime/cvsroot co slime`
 
 ### Install AUCTeX
-  Download from: http://www.gnu.org/software/auctex/
+
+  Get from Homebrew, or download from: http://www.gnu.org/software/auctex/
 
   1. `./configure --with-lispdir=/Users/vinceb/.emacs.d/modes/auctex --with-texmf-dir=/usr/local/texlive/texmf-local`
   2. `make`
