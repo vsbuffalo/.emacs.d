@@ -58,6 +58,9 @@
 ;;  (add-to-list 'flymake-allowed-file-name-masks
 ;;               '("\\.py\\'" flymake-pylint-init)))
 
+;; Pylint
+(require 'python-pylint)
+
 ;; ========== AUCTeX ==========
 ;; Add directories containg TeX binaries to path; the OS X Emacs
 ;; application doesn't get the system path. This also works (with
@@ -112,10 +115,11 @@
 ;; ========== Org-mode Settings ==========
 (require 'org)
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
-(setq org-directory "~/org/")
+(setq org-directory "~/notebooks/")
 (setq org-default-notes-file "~/org/.notes")
 (define-key global-map "\C-cl" 'org-store-link)
 (define-key global-map "\C-ca" 'org-agenda)
+(org-agenda-files (quote ("~/notebooks/personal-todo.org")))
 (global-font-lock-mode t)
 
 ;; look for a basic template; if exists, insert it
@@ -210,6 +214,23 @@
 ;; (setq auto-mode-alist (cons
 ;; '("\\.Rmd". markdown-mode) auto-mode-alist))
 
+;; ========= Lua mode =========
+(require 'lua-mode)
 
+;; ========== multiple-cursors  ==========
+(add-to-list 'load-path 
+             (concat *emacs-root* "modes/multiple-cursors.el"))
+(require 'multiple-cursors)
+(global-set-key (kbd "C-c C-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
+;; ========== asciidoc  ==========
+(autoload 'doc-mode "doc-mode" nil t)
+(add-to-list 'auto-mode-alist '("\\.asciidoc$" . doc-mode))
+(add-hook 'doc-mode-hook
+          '(lambda ()
+             (turn-on-auto-fill)
+             (require 'asciidoc)))
 

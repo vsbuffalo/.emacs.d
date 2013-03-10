@@ -92,3 +92,9 @@ keystrokes continue to enlarge the window."
 
 ;; Turn on fixme mode
 (require 'fixme-mode)
+
+;; join on to one line, from http://whattheemacsd.com/
+(global-set-key (kbd "M-j")
+            (lambda ()
+              (interactive)
+              (join-line -1)))

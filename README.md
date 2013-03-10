@@ -87,6 +87,10 @@ This is actually tracked in this repository, but to update:
 
   1. `curl http://js2-mode.googlecode.com/files/js2-20090723b.el  > ~/.emacs.d/modes/js2-mode.el`
 
+### Installing multiple-cursors
+
+  1. git clone git://github.com/magnars/multiple-cursors.el.git ~/.emacs.d/modes/multiple-cursors.el
+
 ### Installing g-client
 
 g-client is part of emacspeak. Checkout and install via:
