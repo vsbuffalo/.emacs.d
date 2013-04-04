@@ -2,8 +2,8 @@
 
 This is my .emacs.d directory. A large part of my layout is inspired
 by Fogus's and Steve Yegge's. I would recommend using this only for
-reference, and not cloning and using it exactly, as it contains a few
-machine-dependent paths hardcoded in.
+reference, and not cloning and using it exactly, because what works
+for me may not work for you.
 
 Installing Emacs
 ----------------
@@ -30,7 +30,7 @@ version:
  4. `mv nextstep/Emacs.app /Applications`
 
 To build the terminal application, make sure `jpeg`, `tiff`, and `libungif`
-are installed via Macports. Then compile with:
+are installed via Homebrew. Then compile with:
 
  1. `./configure --without-x`
  2. `make`
@@ -90,32 +90,4 @@ This is actually tracked in this repository, but to update:
 ### Installing multiple-cursors
 
   1. git clone git://github.com/magnars/multiple-cursors.el.git ~/.emacs.d/modes/multiple-cursors.el
-
-### Installing g-client
-
-g-client is part of emacspeak. Checkout and install via:
-
-  1. `svn checkout http://emacspeak.googlecode.com/svn/trunk/lisp/g-client/ ~/.emacs.d/modes/g-client`
-  2. `cd ~/.emacs.d/modes/g-client/`
-  3. `make`
-
-ELPA
-----
-
-You must manually install ELPA. The directions are here:
-http://tromey.com/elpa/install.html, but basically you evaluate (with
-C-x C-e) a block like:
-
-    (let ((buffer (url-retrieve-synchronously
-    	       "http://tromey.com/elpa/package-install.el")))
-      (save-excursion
-        (set-buffer buffer)
-        (goto-char (point-min))
-        (re-search-forward "^$" nil 'move)
-        (eval-region (point) (point-max))
-        (kill-buffer (current-buffer))))
-
-Which produces a block of code. I have this in
-settings/mode-settings.el, so the code the block above generates to
-avoid redundancy.
 
