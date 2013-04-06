@@ -35,6 +35,8 @@
 (defun init--install-packages ()
   (packages-install
    (cons 'gist melpa)
+   (cons 'ess melpa)
+   (cons 'markdown-mode melpa)
    (cons 'buffer-move marmalade)
    (cons 'multiple-cursors marmalade)))
 
@@ -48,3 +50,13 @@
 (require 'general-settings)
 (eval-after-load 'ido '(require 'ido-settings))
 (eval-after-load 'org '(require 'org-settings))
+
+;; Load other setup files
+(require 'appearance-settings) ; adjusts visual settings
+(require 'interface-settings) ; adjusts user interaction settings
+(require 'doc-mode-settings)
+(require 'ess-settings)
+(require 'ido-settings)
+(require 'multiple-cursors-settings)
+(require 'shell-settings)
+(require 'yasnippet-settings)

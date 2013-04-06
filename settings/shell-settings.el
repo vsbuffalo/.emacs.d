@@ -5,3 +5,5 @@
 (setq comint-prompt-read-only nil)
 (setq comint-move-point-for-output t)
 (setq comint-scroll-to-bottom-on-input t)
+
+(provide 'shell-settings)

@@ -14,7 +14,3 @@
 	path = plugins/auctex
 	url = git://github.com/emacsmirror/auctex.git
 	ignore = dirty
-[submodule "plugins/ess"]
-	path = plugins/ess
-	url = git://github.com/emacs-ess/ESS.git
-	ignore = dirty

@@ -41,3 +41,5 @@ keystrokes continue to enlarge the window."
             (lambda ()
               (interactive)
               (join-line -1)))
+
+(provide 'interface-settings)
