@@ -36,6 +36,10 @@
   (packages-install
    (cons 'gist melpa)
    (cons 'ess melpa)
+   (cons 'yasnippet melpa)
+   (cons 'auctex melpa)
+   (cons 'ido-ubiquitous melpa)
+   (cons 'js2-mode melpa)
    (cons 'markdown-mode melpa)
    (cons 'buffer-move marmalade)
    (cons 'multiple-cursors marmalade)))
@@ -60,3 +64,6 @@
 (require 'multiple-cursors-settings)
 (require 'shell-settings)
 (require 'yasnippet-settings)
+
+;; Load mode mappings
+(require 'mode-mappings)
