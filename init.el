@@ -1,51 +1,50 @@
-;;; init.el --- Initialize globals and load other configuration files
+;;;; init.el -- initialize globals, find and load plugins, and load important stuff early
 
-(require 'cl)
+;;; Disable some configurations immediately to decrease load time
 
-;; Default values
-(defvar *emacs-root* (expand-file-name "~/.emacs.d/")
-  "root of emacs load-path")
-(defvar *aspell-path* "/usr/local/bin/aspell"
-  "location of aspell for flyspell-mode")
-(defvar *sbcl-path* "/opt/local/bin/sbcl"
-  "location of sbcl for use with slime")
-(defvar *tex-paths* '("/usr/local/bin" "/usr/texbin")
-  "location of TeX binaries for AUCTeX")
+;; Disable that stupid toolbar and menu bar
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
-;; Set up load path - everything should be contained to ~/.emacs.d
-(labels ((add-path (p) 
-		   (add-to-list 'load-path (concat *emacs-root* p))))
-  (add-path "settings") ;; contains all settings
-  (add-path "modes") ;; for mode files; this need to be installed separately
-  (add-path "modes/auctex") 
-  (add-path "modes/slime")
-  (add-path "modes/yasnippet")
-  ;; (add-path "/modes/icicles/")
-  (add-path "modes/ess/lisp") ;; ESS's lisp (also needs ess/etc)
-  (add-path "elisp") ;; for tiny bits of code, both mine and collected
-  (add-path "elisp/themes") ;; contains themes for use with color-theme
-  )
+;; Don't give me that pleasant start up message
+(setq inhibit-startup-message t)
 
+;;;; Load Path 
+(add-to-list 'load-path user-emacs-directory)
 
-;; General settings, i.e. behaviors across all modes.
-(load-library "general")
+;; Plugins provided by submodules
+(defvar *plugins-dir*
+  (expand-file-name "plugins" user-emacs-directory))
 
-;; Color themes and aesthetic settings
-(load-library "visual")
+(dolist (project (directory-files *plugins-dir* t "\\w+"))
+  (when (file-directory-p project)
+    (add-to-list 'load-path project)))
 
-;; Configurations for various modes
-(load-library "mode-settings")
+;; Settings in settings directory 
+(add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
 
-;; Load my custom elisp functions (for small stuff)
-(load-library "custom")
+;; Other relevant directories
+(defvar *snippet-dir* 
+  (expand-file-name "snippets" user-emacs-directory))
 
+;; Setup packages
+(require 'setup-package)
 
-;;; This was installed by package-install.el.
-;;; This provides support for the package system and
-;;; interfacing with ELPA, the package archive.
-;;; Move this code earlier if you want to reference
-;;; packages in your .emacs.
-(when
-    (load
-     (expand-file-name "~/.emacs.d/elpa/package.el"))
-  (package-initialize))
+;; Install extensions if they're missing
+(defun init--install-packages ()
+  (packages-install
+   (cons 'gist melpa)
+   (cons 'buffer-move marmalade)
+   (cons 'multiple-cursors marmalade)))
+
+(condition-case nil
+    (init--install-packages)
+  (error
+   (package-refresh-contents)
+   (init--install-packages)))
+
+;; Load setup files
+(require 'general-settings)
+(eval-after-load 'ido '(require 'ido-settings))
+(eval-after-load 'org '(require 'org-settings))

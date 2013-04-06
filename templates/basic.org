@@ -1,5 +1,0 @@
-#+title: 
-#+author: Vince Buffalo
-#+email: vsbuffalo@ucdavis.edu
-#+date: 
-#+babel: :results output :exports both :session :comments org
