@@ -1,4 +1,5 @@
-;;;; init.el -- initialize globals, find and load plugins, and load important stuff early
+;;;; init.el -- initialize globals, install any necessar packages, and
+;;;; load important stuff early
 
 ;;; Disable some configurations immediately to decrease load time
 
@@ -12,14 +13,6 @@
 
 ;;;; Load Path 
 (add-to-list 'load-path user-emacs-directory)
-
-;; Plugins provided by submodules
-(defvar *plugins-dir*
-  (expand-file-name "plugins" user-emacs-directory))
-
-(dolist (project (directory-files *plugins-dir* t "\\w+"))
-  (when (file-directory-p project)
-    (add-to-list 'load-path project)))
 
 ;; Settings in settings directory 
 (add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
@@ -37,7 +30,7 @@
    (cons 'gist melpa)
    (cons 'ess melpa)
    (cons 'yasnippet melpa)
-   (cons 'auctex melpa)
+   (cons 'adoc-mode marmalade)
    (cons 'ido-ubiquitous melpa)
    (cons 'js2-mode melpa)
    (cons 'markdown-mode melpa)

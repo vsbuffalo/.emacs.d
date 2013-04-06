@@ -1,17 +1,16 @@
 ;;;; org-settings.el -- org-mode settings
 
-(require 'org)
-(setq org-directory "~/notebooks/")
-(setq org-default-notes-file "~/org/.notes")
-(define-key global-map "\C-cl" 'org-store-link)
-(define-key global-map "\C-ca" 'org-agenda)
-(org-agenda-files (quote ("~/notebooks/personal-todo.org")))
-(global-font-lock-mode t)
+;; (setq org-directory "~/notebooks/")
+;; (setq org-default-notes-file "~/org/.notes")
+;; (define-key global-map "\C-cl" 'org-store-link)
+;; (define-key global-map "\C-ca" 'org-agenda)
+;; (org-agenda-files (quote ("~/notebooks/personal-todo.org")))
+;; (global-font-lock-mode t)
 
-;; look for a basic template; if exists, insert it
-(let ((basic-org-template (concat *emacs-root* "templates/basic.org")))
-  (if (file-exists-p basic-org-template)
-      (define-auto-insert "\.org" basic-org-template)))
+;; ;; look for a basic template; if exists, insert it
+;; (let ((basic-org-template (concat *emacs-root* "templates/basic.org")))
+;;   (if (file-exists-p basic-org-template)
+;;       (define-auto-insert "\.org" basic-org-template)))
 
 
 ;; binding remember-mode with org-mode
@@ -25,7 +24,7 @@
 ;; Don't subscript
 (setq org-export-with-sub-superscripts nil)
 
-;; TODO states
+;; todoo states
 (setq org-todo-keywords
       '((sequence "TODO(t)" "FEEDBACK(f)" "VERIFY(v)" 
                   "FRAGILE(f)" "|" "DONE(d)" "DELEGATED(g)")
