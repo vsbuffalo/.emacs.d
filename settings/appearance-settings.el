@@ -1,9 +1,7 @@
 ;;;; appearance-settings.el
-
-(setq visible-bell t
+(setq visible-bell nil
       font-lock-maximum-decoration t
-      color-theme-is-global t
-      truncate-partial-width-windows nil)
+      color-theme-is-global t)
 
 
 ;; Display column number
@@ -21,7 +19,8 @@
   (require 'color-theme)
   (eval-after-load "color-theme"
     '(progn
-       (color-theme-initialize)
-       (color-theme-tango))))
+       (set-frame-size (selected-frame) 65 60)
+       (require 'tangotango-theme)
+       (set-face-attribute 'default nil :height 120))))
 
 (provide 'appearance-settings)

@@ -8,6 +8,9 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
+;; Increase undo limit 
+(setq undo-limit 9000000)
+
 ;; Don't give me that pleasant start up message
 (setq inhibit-startup-message t)
 
@@ -29,6 +32,9 @@
   (packages-install
    (cons 'gist melpa)
    (cons 'ess melpa)
+   (cons 'twittering-mode melpa)
+   (cons 'color-theme melpa)
+   (cons 'tangotango-theme melpa)
    (cons 'yasnippet melpa)
    (cons 'adoc-mode marmalade)
    (cons 'ido-ubiquitous melpa)

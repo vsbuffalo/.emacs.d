@@ -4,7 +4,9 @@
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
 
 ;; HTML
-(add-to-list 'auto-mode-alist '("\\.html\\'" . html-mode))
+(add-to-list 'auto-mode-alist '("\\.html\\'" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.xhtml\\'" . nxml-mode))
+(add-to-list 'auto-mode-alist '("\\.xml\\'" . nxml-mode))
 
 ;; Snippets
 (add-to-list 'auto-mode-alist '("yasnippet/snippets" . snippet-mode))
@@ -18,5 +20,12 @@
 
 ;; org-mode
 (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
+
+;; ESS
+(add-to-list 'auto-mode-alist '("\\.R$" . r-mode))
+(add-to-list 'auto-mode-alist '("\\.Rnw\\'" . Rnw-mode))
+
+;; doc-mode
+(add-to-list 'auto-mode-alist '("\\.asciidoc$" . adoc-mode))
 
 (provide 'mode-mappings)
