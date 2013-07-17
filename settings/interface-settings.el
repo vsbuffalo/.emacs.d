@@ -42,4 +42,6 @@ keystrokes continue to enlarge the window."
               (interactive)
               (join-line -1)))
 
+(global-set-key (kbd "C-i") 'backward-kill-word)
+
 (provide 'interface-settings)
