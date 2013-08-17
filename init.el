@@ -31,6 +31,7 @@
 (defun init--install-packages ()
   (packages-install
    (cons 'gist melpa)
+   (cons 'unbound marmalade)
    (cons 'ess melpa)
    (cons 'twittering-mode melpa)
    (cons 'color-theme melpa)
@@ -57,7 +58,7 @@
 ;; Load other setup files
 (require 'appearance-settings) ; adjusts visual settings
 (require 'interface-settings) ; adjusts user interaction settings
-(require 'doc-mode-settings)
+(require 'adoc-mode-settings)
 (require 'ess-settings)
 (require 'ido-settings)
 (require 'multiple-cursors-settings)

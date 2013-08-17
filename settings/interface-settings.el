@@ -1,5 +1,9 @@
 ;;;; interface-settings.el
 
+;; unbound.el allow me to see unbound key combinations with M-x
+;; describe-unbound-keys
+(require 'unbound)
+
 ;; Allow repeated cycling through mark ring
 (setq set-mark-command-repeat-pop t)
 ;; Set higher mark ring maximum
@@ -42,6 +46,6 @@ keystrokes continue to enlarge the window."
               (interactive)
               (join-line -1)))
 
-(global-set-key (kbd "C-i") 'backward-kill-word)
+(global-set-key (kbd "C-j") 'backward-kill-word)
 
 (provide 'interface-settings)
