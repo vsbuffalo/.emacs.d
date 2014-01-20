@@ -1,5 +1,11 @@
 ;;;; interface-settings.el
 
+;; Buffer switching in cocoa app mirrors my iTerm2 toggling
+
+(when (eq window-system 'ns)
+  (global-set-key (kbd "s-j") 'previous-buffer) 
+  (global-set-key (kbd "s-k") 'next-buffer))
+
 ;; unbound.el allow me to see unbound key combinations with M-x
 ;; describe-unbound-keys
 (require 'unbound)
