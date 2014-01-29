@@ -15,7 +15,7 @@
 (setq inhibit-startup-message t)
 
 ;;;; Load Path 
-(add-to-list 'load-path user-emacs-directory)
+;;(add-to-list 'load-path user-emacs-directory)
 
 ;; Settings in settings directory 
 (add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
