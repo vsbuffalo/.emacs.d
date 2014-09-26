@@ -42,6 +42,7 @@
    (cons 'js2-mode melpa)
    (cons 'markdown-mode melpa)
    (cons 'buffer-move marmalade)
+   (cons 'evil evil)
    (cons 'multiple-cursors marmalade)))
 
 (condition-case nil
@@ -78,3 +79,6 @@
 	  "/Library/Application Support/cocoAspell/aspell6-en-6.0-0")
 	 nil iso-8859-1)))
 
+;; evil mode
+(require 'evil)
+(evil-mode 1)
