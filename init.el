@@ -1,4 +1,4 @@
-;;;; init.el -- initialize globals, install any necessary packages, and
+;;; init.el -- initialize globals, install any necessary packages, and
 ;;;; load important stuff early
 
 (add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
@@ -17,8 +17,16 @@
 (require 'init-keys)
 (require 'init-complete)
 (require 'init-asciidoc)
+(require 'init-markdown)
+(require 'init-org)
+(require 'init-multiterm)
 
 ;; Start emacs server, so emacsclient is supported
 (require 'server)
 (unless (server-running-p)
     (server-start))
+
+
+
+
+

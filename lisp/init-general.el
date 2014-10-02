@@ -4,6 +4,11 @@
 (require-package 'exec-path-from-shell)
 (exec-path-from-shell-initialize)
 
+;; fill width
+(setq-default fill-column 80)
+
+;; add new lines with C-n
+(setq next-line-add-newlines t)
 
 ;; Make Grep's default command recursive
 (setq grep-command "grep -nHr -e ")
