@@ -2,8 +2,8 @@
 
 ;; Newest popup if neede
 ;;(auto-install-from-url "https://github.com/m2ym/popup-el/raw/master/popup.el")
-(require-package 'popup)
-(require 'popup)
+;;(require-package 'popup)
+;;(require 'popup)
 
 (require-package 'auto-complete)
 (require-package 'auto-complete-clang-async)
@@ -39,3 +39,14 @@
 (my-ac-config)
 
 (provide 'init-complete)
+
+
+
+
+
+
+
+
+
+
+
