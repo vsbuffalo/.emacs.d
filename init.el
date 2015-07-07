@@ -20,6 +20,7 @@
 (require 'init-markdown)
 (require 'init-org)
 (require 'init-multiterm)
+(require 'init-js)
 
 ;; Start emacs server, so emacsclient is supported
 (require 'server)

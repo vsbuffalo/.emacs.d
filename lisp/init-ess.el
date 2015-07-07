@@ -4,6 +4,7 @@
 
 (require 'ess-site)
 (setq ess-indent-level 2)
+(setq ess-default-style 'OWN)
 (setq ess-eval-visibly-p nil)
 
 ;; turn off damn annoying ess fancy comments
@@ -20,7 +21,7 @@
 (add-to-list 'auto-mode-alist '("\\.Snw" . poly-noweb+r-mode))
 (add-to-list 'auto-mode-alist '("\\.Rnw" . poly-noweb+r-mode))
 (add-to-list 'auto-mode-alist '("\\.Rmd" . poly-markdown+r-mode))
-;;
+;;;;
 (require 'poly-R)
 (require 'poly-markdown)
 
