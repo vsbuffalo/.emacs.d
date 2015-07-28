@@ -1,0 +1,35 @@
+# -*- mode: snippet -*-
+# name: math
+# key: math
+# --
+\documentclass[11pt]{article}
+\usepackage{fullpage}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{bbm}
+\usepackage{mathrsfs}
+\usepackage[authoryear,round,longnamesfirst]{natbib}
+\usepackage[x11names, rgb]{xcolor}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{snakes,arrows,shapes}
+\usepackage{hyperref}
+\hypersetup{
+  colorlinks=true
+}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\DeclareMathOperator{\var}{var}
+\DeclareMathOperator{\cov}{cov}
+
+\title{$1}
+
+\author{${2:Vince Buffalo}}
+
+\begin{document}
+\maketitle
+
+$0
+
+\end{document}

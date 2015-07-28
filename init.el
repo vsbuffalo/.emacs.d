@@ -14,6 +14,7 @@
 (require 'init-ido)
 (require 'init-ess)
 (require 'init-appearance)
+(require 'init-git)
 (require 'init-keys)
 (require 'init-complete)
 (require 'init-asciidoc)
@@ -21,6 +22,16 @@
 (require 'init-org)
 (require 'init-multiterm)
 (require 'init-js)
+(require 'init-yas)
+
+;; playground
+;; try Python Notebook
+(require 'ein)
+(setq w3m-default-display-inline-images t)
+(turn-on-iimage-mode)
+(iimage-mode-buffer t)
+
+
 
 ;; Start emacs server, so emacsclient is supported
 (require 'server)
